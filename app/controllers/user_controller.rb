@@ -8,4 +8,8 @@ class UserController < ApplicationController
   get '/signup' do
     erb :'users/signup'
   end
+
+  post '/signup' do
+    binding.pry
+  end
 end
