@@ -11,6 +11,7 @@ Specs:
   - User has_many user_recipes and recipes through user_recipes
 - [x] Include at least one belongs_to relationship on another model (x belongs_to y, e.g. Post belongs_to User)
   - UserRecipe belongs to a user and a recipe
+  
 - [ ] Include user accounts
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
