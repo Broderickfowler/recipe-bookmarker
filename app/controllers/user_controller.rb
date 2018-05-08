@@ -26,7 +26,6 @@ class UserController < ApplicationController
     @user = User.create(params[:user])
 
     #TODO: Add validation to the model class to ensure NO USERNAME DUPLICATES
-    #TODO: Helper methods "logged in?" and "current_user"
 
     if !!@user.id
       session[:name] = @user.username
@@ -35,13 +34,18 @@ class UserController < ApplicationController
       # flash message stating "Successfully created user"
     else
       redirect to '/signup'
-      #flash message stating user must fill in all signup information
+      # flash message stating user must fill in all signup information
     end
   end
 
   get '/users/:id/bookmarks' do
     @user = User.find_by_id(params[:id])
     erb :'users/index'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect to '/'
   end
 
 end
