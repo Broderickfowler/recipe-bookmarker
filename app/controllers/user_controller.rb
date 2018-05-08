@@ -6,8 +6,16 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    #set session[:name]
-    #set session[:user_id]
+    @user = User.find_by(username: params[:user][:username])
+    if @user.authenticate(params[:user][:password])
+      session[:name] = @user.username
+      session[:user_id] = @user.id
+      redirect "/users/#{@user.id}/bookmarks"
+      # flash message stating successful login
+    else
+      redirect '/login'
+      # flash message stating username / password combo is incorrect
+    end
   end
 
   get '/signup' do
@@ -26,8 +34,8 @@ class UserController < ApplicationController
       redirect "/users/#{@user.id}/bookmarks"
       # flash message stating "Successfully created user"
     else
-      #flash message stating user must fill in all signup information
       redirect to '/signup'
+      #flash message stating user must fill in all signup information
     end
   end
 
