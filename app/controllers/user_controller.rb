@@ -2,12 +2,18 @@ require './config/environment'
 
 class UserController < ApplicationController
   get '/login' do
-    erb :'users/login'
+    if Helpers.is_logged_in?(session)
+      #flash message -- you are already logged in
+      @user = Helpers.current_user(session)
+      redirect "/users/#{@user.id}/bookmarks"
+    else
+      erb :'users/login'
+    end
   end
 
   post '/login' do
     @user = User.find_by(username: params[:user][:username])
-    if @user.authenticate(params[:user][:password])
+    if !!@user && @user.authenticate(params[:user][:password])
       session[:name] = @user.username
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}/bookmarks"
@@ -15,17 +21,23 @@ class UserController < ApplicationController
     else
       redirect '/login'
       # flash message stating username / password combo is incorrect
+      # if password doesn't work, redirect to login
+      # if username is not found, redirect to signup
     end
   end
 
   get '/signup' do
-    erb :'users/signup'
+    if Helpers.is_logged_in?(session)
+      #flash message -- you are already logged in
+      @user = Helpers.current_user(session)
+      redirect "/users/#{@user.id}/bookmarks"
+    else
+      erb :'users/signup'
+    end
   end
 
   post '/signup' do
     @user = User.create(params[:user])
-
-    #TODO: Add validation to the model class to ensure NO USERNAME DUPLICATES
 
     if !!@user.id
       session[:name] = @user.username
