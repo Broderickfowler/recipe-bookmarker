@@ -22,7 +22,8 @@
       <small>&copy; 2018 <strong>RecipeBookmarker</strong></small> <br>
       <% if Helpers.current_user(session) %>
       <% @user = Helpers.current_user(session) %>
-      <small align="left"> Current User: <%= @user.username %> </small> <small align="right"> <a href="/logout">Log Out</a></small>
+      <small align="left"> Current User: <%= @user.username %> </small>
+      <small align="right"> <a href="/logout">Log Out</a></small>
       <% else%>
       <small> No one is logged in right now</small>
       <% end %>

@@ -1,3 +1,9 @@
-Here is a list of your recipe bookmarks <br>
-
+<h1>Welcome to your homepage, <%= @user.username %></h1>
+<h2>Here are the recipes you have bookmarked:</h2>
+<ul>
+  <% @user.recipes.all each do |recipe| %>
+    <li><%= recipe.name %></li>
+  <% end %>
+    <li>Add a new recipe bookmark</li>
+</ul>
 <a href="/logout">Log Out</a>
