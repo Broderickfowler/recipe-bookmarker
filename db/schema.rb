@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180509183752) do
   create_table "recipes", force: :cascade do |t|
     t.string  "name"
     t.string  "url"
-    t.integer "creator"
+    t.integer "creator_id"
   end
 
   create_table "user_recipes", force: :cascade do |t|

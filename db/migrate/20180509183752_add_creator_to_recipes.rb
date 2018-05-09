@@ -1,6 +1,5 @@
 class AddCreatorToRecipes < ActiveRecord::Migration
   def change
-      #add_column(table_name, column_name, type, options = {}) public
-      add_column :recipes, :creator, :integer
+      add_column :recipes, :creator_id, :integer
   end
 end
