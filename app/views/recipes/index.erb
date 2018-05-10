@@ -6,11 +6,7 @@
   <li> <a href="/recipes/<%= recipe.id %>"> <%= recipe.name %> </a> </li>
 <% end %>
 
-<!-- Button to show User's homepage, and button to add a new Recipe Bookmark  -->
-<form action="/users/<%= @user.id %>/bookmarks" method="get">
-  <input type="submit" name="home_page" value="Go To Your Home Page">
-</form>
+<!-- Links to show User's homepage, and to add a new Recipe Bookmark  -->
+<a href="/users/<%= @user.id %>/bookmarks"> Go to your Home Page </a>
 
-<form action="/recipes/new" method="get">
-  <input type="submit" name="new_recipe" value="Add Your New Recipe">
-</form>
+<a href="/recipes/new"> Add Your New Recipe </a>
