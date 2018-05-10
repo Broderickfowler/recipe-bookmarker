@@ -10,3 +10,6 @@ britt.created_recipes.build(name: "Quinoa", url: "quinoa.com")
 carly = User.find_by(username: "carly")
 
 carly.created_recipes.build(name: "tacos", url: "tacos.com")
+
+britt.save
+carly.save
