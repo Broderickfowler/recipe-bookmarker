@@ -23,6 +23,8 @@ class RecipeController < ApplicationController
   end
 
   post '/recipes' do
+    #TODO: Add validations to Recipe model to ensure good data.
+    #QUESTION: What is considered good data for that model?
     raise params.inspect
   end
 end
