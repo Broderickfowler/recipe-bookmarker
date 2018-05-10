@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :password_digest
   validates :username, uniqueness: true
 
+  def all_recipes
+    recipes + created_recipes
+  end
 end
