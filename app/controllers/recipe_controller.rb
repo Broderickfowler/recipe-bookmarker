@@ -2,12 +2,13 @@ require './config/environment'
 
 class RecipeController < ApplicationController
   get '/recipes' do
+    @user = Helpers.current_user(session)
     @recipes = Recipe.all
     erb :'recipes/index'
   end
 
   get '/recipes/new' do
-    @creator = Helpers.current_user
+    @creator = Helpers.current_user(session)
     erb :'recipes/new'
   end
 
