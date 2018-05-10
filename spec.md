@@ -16,6 +16,8 @@ Specs:
   - User accounts are unable to be duplicated, indicated in the User class. username must be unique.
   - User is able to log in and log out.
 - [ ] Ensure that users can't modify content created by other users
+  -https://unorientedobject.wordpress.com/2016/09/14/aliasing-and-options-in-rails-activerecord-associations/
+  
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [x] Include user input validations
   - Models ensure a user account must include username and password
