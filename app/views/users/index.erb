@@ -1,9 +1,16 @@
+<!-- USER INDEX -->
+
 <h1>Welcome to your homepage, <%= @user.username %></h1>
-<h2>Here are the recipes you have bookmarked:</h2>
+<h3>Here are the recipes you have bookmarked:</h3>
 <ul>
-  <% @user.recipes.all each do |recipe| %>
+
+  <% @user.all_recipes.each do |recipe| %>
     <li><%= recipe.name %></li>
   <% end %>
-    <li>Add a new recipe bookmark</li>
 </ul>
 <a href="/logout">Log Out</a>
+
+<!-- To Do:  -->
+<!-- All Recipes are links to the RECIPE SHOW pages. -->
+<!-- IF @user.id == recipe.creator_id, show an EDIT button -->
+<!-- Edit button action="/recipe/recipe_id/edit" method="GET"-->

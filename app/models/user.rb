@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   def all_recipes
     recipes + created_recipes
   end
+
+  # instance method "bookmark_recipe" ?
+
 end

@@ -5,7 +5,7 @@ class UserController < ApplicationController
     if Helpers.is_logged_in?(session)
       #flash message -- you are already logged in
       @user = Helpers.current_user(session)
-      redirect "/users/#{@user.id}/bookmarks"
+      redirect "/recipes"
     else
       erb :'users/login'
     end
@@ -16,7 +16,7 @@ class UserController < ApplicationController
     if !!@user && @user.authenticate(params[:user][:password])
       session[:name] = @user.username
       session[:user_id] = @user.id
-      redirect "/users/#{@user.id}/bookmarks"
+      redirect "/recipes"
       # flash message stating successful login
     else
       redirect '/login'
@@ -30,7 +30,7 @@ class UserController < ApplicationController
     if Helpers.is_logged_in?(session)
       #flash message -- you are already logged in
       @user = Helpers.current_user(session)
-      redirect "/users/#{@user.id}/bookmarks"
+      redirect "/recipes"
     else
       erb :'users/signup'
     end
@@ -42,7 +42,7 @@ class UserController < ApplicationController
     if !!@user.id
       session[:name] = @user.username
       session[:user_id] = @user.id
-      redirect "/users/#{@user.id}/bookmarks"
+      redirect "/recipes"
       # flash message stating "Successfully created user"
     else
       redirect to '/signup'
