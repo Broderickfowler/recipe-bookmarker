@@ -5,12 +5,18 @@
 <ul>
 
   <% @user.all_recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
+    <li><h3> <a href="/recipes/<%= recipe.id %>"> <%= recipe.name %> </a> </h3>  </li>
   <% end %>
 </ul>
-<a href="/logout">Log Out</a>
+
+<br>
+
+<a href="/recipes">Return to Recipe Bookmarker Homepage</a><br>
+<a href="/recipes/new"> Add Your New Recipe </a>
+
 
 <!-- To Do:  -->
-<!-- All Recipes are links to the RECIPE SHOW pages. -->
+<!-- All Recipes are links to the RECIPE SHOW pages. X -->
+<!-- Link to Return to homepage AND link to Create a New Recipe X -->
 <!-- IF @user.id == recipe.creator_id, show an EDIT button -->
 <!-- Edit button action="/recipe/recipe_id/edit" method="GET"-->
