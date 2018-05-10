@@ -21,4 +21,8 @@ class RecipeController < ApplicationController
     @recipe = Recipe.find_by_id(params[:id])
     erb :'recipes/edit'
   end
+
+  post '/recipes' do
+    raise params.inspect
+  end
 end
