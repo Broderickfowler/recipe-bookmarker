@@ -5,4 +5,19 @@ class RecipeController < ApplicationController
     @recipes = Recipe.all
     erb :'recipes/index'
   end
+
+  get 'recipes/new' do
+    @creator = Helpers.current_user
+    erb :'recipes/new'
+  end
+
+  get 'recipes/:id' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :'recipes/show'
+  end
+
+  get 'recipes/:id/edit' do
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :'recipes/edit'
+  end
 end
