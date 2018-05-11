@@ -25,6 +25,7 @@ class RecipeController < ApplicationController
   post '/recipes' do
     #TODO: Add validations to Recipe model to ensure good data.
     #QUESTION: What is considered good data for that model?
-    raise params.inspect
+    @recipe = Recipe.create(params[:recipe])
+    redirect "/recipes/#{@recipe.id}"
   end
 end
