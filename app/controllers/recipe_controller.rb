@@ -14,6 +14,8 @@ class RecipeController < ApplicationController
 
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
+    @creator = User.find_by_id(@recipe.creator_id)
+    @user = Helpers.current_user(session)
     erb :'recipes/show'
   end
 
