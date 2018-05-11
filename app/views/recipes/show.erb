@@ -1,7 +1,17 @@
 <h1> <%= @recipe.name %> </h1> <br>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <br>
-<p>Recipe Found At:</p>
-<a href="<%= @recipe.url %>"> <%= @recipe.url %> </a>
+<p>Recipe Found At:<br>
+<a href="<%= @recipe.url %>"> <%= @recipe.url %> </a></p>
+<p>Recipe Added By: <%= @creator.username %></p>
 <hr>
-<p>Recipe Added By: <%= @creator.name %></p> <% %>
+<br>
+<% if @user.id == @creator.id %>
+  <a href="/recipes/<%= @recipe.id %>/edit">Edit or Delete Recipe</a>
+<% elsif @user.all_recipes.include?(@recipe)%>
+  <!-- TODO: How can navigating to these pages add or remove the bookmark?  Should this be a form with a post or patch method? -->
+  <!-- Should this link go to recipe/id/remove and then ask user to Confirm removing? -->
+  <a href="">Remove Recipe from Bookmarks</a>
+<% else %>
+  <a href="">Add Recipe to Bookmarks</a>
+<% end %>
