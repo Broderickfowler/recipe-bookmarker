@@ -9,8 +9,8 @@
 <% if @user.id == @creator.id %>
   <a href="/recipes/<%= @recipe.id %>/edit">Edit or Delete Recipe</a>
 <% elsif @user.all_recipes.include?(@recipe)%>
-  <!-- TODO: How can navigating to these pages add or remove the bookmark?  Should this be a form with a post or patch method? -->
-  <!-- Should this link go to recipe/id/remove and then ask user to Confirm removing? -->
+  <!-- TODO: FORM SUBMISSION, action= user page, method= patch -->
+  <!-- User method to add recipe to bookmarks -->
   <a href="">Remove Recipe from Bookmarks</a>
 <% else %>
   <a href="">Add Recipe to Bookmarks</a>
