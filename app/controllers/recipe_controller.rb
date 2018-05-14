@@ -54,6 +54,8 @@ class RecipeController < ApplicationController
 
   patch '/recipes/:id/add' do
     #add_recipe method
+    #TODO: change helper methods to be in controller. use current_user method to
+    #refer to current user here and then us add_recipe method.
     redirect "/users/#{}/bookmarks"
   end
 
