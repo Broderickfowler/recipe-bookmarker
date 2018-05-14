@@ -36,5 +36,9 @@ class RecipeController < ApplicationController
     redirect "/recipes/#{@recipe.id}"
   end
 
-  
+  patch '/recipes/:id' do
+    raise params.inspect
+  end
+
+
 end
