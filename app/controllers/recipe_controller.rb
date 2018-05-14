@@ -3,14 +3,14 @@ require './config/environment'
 class RecipeController < ApplicationController
   #GET - INDEX
   get '/recipes' do
-    @user = Helpers.current_user(session)
+    @user = current_user
     @recipes = Recipe.all
     erb :'recipes/index'
   end
 
   #GET - NEW
   get '/recipes/new' do
-    @creator = Helpers.current_user(session)
+    @creator = current_user
     erb :'recipes/new'
   end
 
@@ -18,7 +18,7 @@ class RecipeController < ApplicationController
   get '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
     @creator = User.find_by_id(@recipe.creator_id)
-    @user = Helpers.current_user(session)
+    @user = current_user
     erb :'recipes/show'
   end
 

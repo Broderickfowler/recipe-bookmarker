@@ -2,9 +2,9 @@ require './config/environment'
 
 class UserController < ApplicationController
   get '/login' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?
       #flash message -- you are already logged in
-      @user = Helpers.current_user(session)
+      @user = current_user
       redirect "/recipes"
     else
       erb :'users/login'
@@ -27,9 +27,9 @@ class UserController < ApplicationController
   end
 
   get '/signup' do
-    if Helpers.is_logged_in?(session)
+    if is_logged_in?
       #flash message -- you are already logged in
-      @user = Helpers.current_user(session)
+      @user = current_user
       redirect "/recipes"
     else
       erb :'users/signup'
