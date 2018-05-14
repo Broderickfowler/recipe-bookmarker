@@ -37,7 +37,10 @@ class RecipeController < ApplicationController
   end
 
   patch '/recipes/:id' do
-    raise params.inspect
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.update(params[:recipe])
+    @recipe.save
+    redirect "/recipes/#{@recipe.id}"
   end
 
 
