@@ -7,11 +7,30 @@
 <hr>
 <br>
 <% if @user.id == @creator.id %>
+
   <a href="/recipes/<%= @recipe.id %>/edit">Edit or Delete Recipe</a>
-<% elsif @user.all_recipes.include?(@recipe)%>
-  <!-- TODO: FORM SUBMISSION, action= user page, method= patch -->
-  <!-- User method to add recipe to bookmarks -->
-  <a href="">Remove Recipe from Bookmarks</a>
+
+<% end %>
+<br>
+
+<!-- QUESTION: Does it make sense for a user to own a recipe and be able to unbookmark it?  -->
+
+<% if @user.all_recipes.include?(@recipe)%>
+
+  <!-- User method to remove recipe from bookmarks -->
+
+  <form action="/recipes/<%= @recipe.id %>/remove" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="submit" name="remove_bookmark" value="Remove Bookmark">
+  </form>
+
 <% else %>
-  <a href="">Add Recipe to Bookmarks</a>
+
+<!-- User method to add recipe to bookmarks -->
+
+  <form action="/recipes/<%= @recipe.id %>/add" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="submit" name="add_bookmark" value="Add Bookmark">
+  </form>
+  
 <% end %>
