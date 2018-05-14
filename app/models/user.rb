@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   # instance method "bookmark_recipe" ?
   def add_recipe(recipe)
+    #Is this a "safe" method?  Perhaps I can add more safety nets to ensure user
+    #cannot add recipes outside of this method
     self.recipes << recipe
     self.save
   end
