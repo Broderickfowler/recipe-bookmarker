@@ -49,4 +49,17 @@ class RecipeController < ApplicationController
     redirect '/recipes'
   end
 
+  # ROUTES BELOW CONTROLLER USER ADDING AND REMOVING BOOKMARK
+  # THIS MAY NOT ADHERE TO RESTFUL ROUTES - HOW WOULD I FIX IT TO BE RESTFUL?
+
+  patch '/recipes/:id/add' do
+    #add_recipe method
+    redirect "/users/#{}/bookmarks"
+  end
+
+  patch '/recipes/:id/remove' do
+    #remove_recipe method
+    redirect "/users/#{}/bookmarks"
+  end
+
 end
