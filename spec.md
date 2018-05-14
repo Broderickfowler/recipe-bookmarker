@@ -20,7 +20,10 @@ Specs:
   - Buttons and links on Recipe Show pages only reveal "Edit" option if the user.id == creator.id of the recipe
 
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-  
+  [x]create
+  [x]read
+  []update -- edit, add/remove bookmark
+  []destroy
 
 
 - [x] Include user input validations

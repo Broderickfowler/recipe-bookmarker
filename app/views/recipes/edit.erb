@@ -8,5 +8,12 @@
   <label for=recipe[url]"">URL:
     <input type="text" name="recipe[url]" value="<%= @recipe.url %>">
   </label> <br>
-  <input type="submit" name="submit" value="Submit">
+  <input type="submit" name="submit" value="Edit This Recipe">
+</form>
+
+<br><br>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="delete" value="Delete This Recipe">
 </form>
