@@ -23,7 +23,7 @@ Specs:
   [x]create
   [x]read
   []update -- edit, add/remove bookmark
-  []destroy
+  [x]destroy
 
 
 - [x] Include user input validations
