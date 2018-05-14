@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
   end
 
   # instance method "bookmark_recipe" ?
+  def add_recipe(recipe)
+    self.recipes << recipe
+    self.save
+  end
 
 end
