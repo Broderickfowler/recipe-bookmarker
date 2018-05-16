@@ -5,7 +5,6 @@ class RecipeController < ApplicationController
 
   use Rack::Flash
 
-  #GET - INDEX
   get '/recipes' do
     redirect_if_not_logged_in
 
@@ -14,25 +13,22 @@ class RecipeController < ApplicationController
     erb :'recipes/index'
   end
 
-  #GET - NEW
   get '/recipes/new' do
     redirect_if_not_logged_in
 
-    @creator = current_user
+    @user = current_user
     erb :'recipes/new'
   end
 
-  #GET - SHOW
   get '/recipes/:id' do
     redirect_if_not_logged_in
 
     @recipe = Recipe.find_by_id(params[:id])
-    @creator = User.find_by_id(@recipe.creator_id)
+    @creator = User.find_by_id(@recipe.user_id)
     @user = current_user
     erb :'recipes/show'
   end
 
-  #GET - EDIT
   get '/recipes/:id/edit' do
     redirect_if_not_logged_in
 
@@ -40,11 +36,10 @@ class RecipeController < ApplicationController
     erb :'recipes/edit'
   end
 
-  #POST - CREATE
   post '/recipes' do
-    #TODO: Add validations to Recipe model to ensure good data.
-    #QUESTION: What is considered good data for that model?
     @recipe = Recipe.create(params[:recipe])
+    bookmark = Bookmark.create(user_id: current_user.id, recipe_id: @recipe.id)
+
     if !!@recipe.id
       redirect "/recipes/#{@recipe.id}"
     else
@@ -70,18 +65,14 @@ class RecipeController < ApplicationController
   # THIS MAY NOT ADHERE TO RESTFUL ROUTES - HOW WOULD I FIX IT TO BE RESTFUL?
 
   patch '/recipes/:id/add' do
-    #add_recipe method
-    #TODO: change helper methods to be in controller. use current_user method to
-    #refer to current user here and then us add_recipe method.
     @recipe = Recipe.find_by_id(params[:id])
-    current_user.add_recipe(@recipe)
+    current_user.add_bookmark(@recipe)
     redirect "/users/#{current_user.id}/bookmarks"
   end
 
   patch '/recipes/:id/remove' do
     @recipe = Recipe.find_by_id(params[:id])
-    binding.pry
-    current_user.remove_recipe(@recipe)
+    current_user.remove_bookmark(@recipe)
     redirect "/users/#{current_user.id}/bookmarks"
   end
 
