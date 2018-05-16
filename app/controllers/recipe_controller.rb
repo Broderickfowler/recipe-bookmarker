@@ -1,4 +1,5 @@
 require './config/environment'
+require 'rack-flash'
 
 class RecipeController < ApplicationController
   #GET - INDEX

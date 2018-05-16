@@ -1,4 +1,5 @@
 require './config/environment'
+require 'rack-flash'
 
 class UserController < ApplicationController
   get '/login' do
