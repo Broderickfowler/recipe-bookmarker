@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
     #WHEN A USER CREATES A RECIPE, a UserRecipe relationship should also be build.
     #BUILD A CUSTOM INSTANCE METHOD for #build or #create ???
     #Depending on what method you use in your CREATE route
+    self.build.user_recipe(user_id: self.id, recipe_id: recipe.id)
+    self.save
   end
+  
 
 end
