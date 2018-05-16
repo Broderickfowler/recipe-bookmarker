@@ -45,7 +45,12 @@ class RecipeController < ApplicationController
     #TODO: Add validations to Recipe model to ensure good data.
     #QUESTION: What is considered good data for that model?
     @recipe = Recipe.create(params[:recipe])
-    redirect "/recipes/#{@recipe.id}"
+    if !!@recipe.id
+      redirect "/recipes/#{@recipe.id}"
+    else
+      flash[:message] = "Please ensure all recipe information is entered, and that your recipe title is unique"
+      redirect '/recipes/new'
+    end
   end
 
   patch '/recipes/:id' do
@@ -75,6 +80,7 @@ class RecipeController < ApplicationController
 
   patch '/recipes/:id/remove' do
     @recipe = Recipe.find_by_id(params[:id])
+    binding.pry
     current_user.remove_recipe(@recipe)
     redirect "/users/#{current_user.id}/bookmarks"
   end

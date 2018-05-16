@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Add A New Recipe</h1>
 
 <form action="/recipes" method="post">
