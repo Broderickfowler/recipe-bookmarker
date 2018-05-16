@@ -3,6 +3,8 @@ require './config/environment'
 class RecipeController < ApplicationController
   #GET - INDEX
   get '/recipes' do
+    redirect_if_not_logged_in
+
     @user = current_user
     @recipes = Recipe.all
     erb :'recipes/index'
@@ -10,12 +12,16 @@ class RecipeController < ApplicationController
 
   #GET - NEW
   get '/recipes/new' do
+    redirect_if_not_logged_in
+
     @creator = current_user
     erb :'recipes/new'
   end
 
   #GET - SHOW
   get '/recipes/:id' do
+    redirect_if_not_logged_in
+
     @recipe = Recipe.find_by_id(params[:id])
     @creator = User.find_by_id(@recipe.creator_id)
     @user = current_user
@@ -24,6 +30,8 @@ class RecipeController < ApplicationController
 
   #GET - EDIT
   get '/recipes/:id/edit' do
+    redirect_if_not_logged_in
+
     @recipe = Recipe.find_by_id(params[:id])
     erb :'recipes/edit'
   end
