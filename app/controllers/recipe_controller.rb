@@ -62,8 +62,9 @@ class RecipeController < ApplicationController
   end
 
   patch '/recipes/:id/remove' do
-    #remove_recipe method
-    redirect "/users/#{}/bookmarks"
+    @recipe = Recipe.find_by_id(params[:id])
+    current_user.remove_recipe(@recipe)
+    redirect "/users/#{current_user.id}/bookmarks"
   end
 
 end
