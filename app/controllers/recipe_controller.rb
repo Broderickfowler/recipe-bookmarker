@@ -1,7 +1,10 @@
 require './config/environment'
-require 'rack-flash'
+# require 'rack-flash'
 
 class RecipeController < ApplicationController
+
+  use Rack::Flash
+
   #GET - INDEX
   get '/recipes' do
     redirect_if_not_logged_in

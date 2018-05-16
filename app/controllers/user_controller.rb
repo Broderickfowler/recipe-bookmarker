@@ -2,6 +2,9 @@ require './config/environment'
 require 'rack-flash'
 
 class UserController < ApplicationController
+
+  use Rack::Flash
+
   get '/login' do
     if is_logged_in?
       #flash message -- you are already logged in

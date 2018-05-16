@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Welcome to Recipe Bookmarker</h1>
 <h2><em>New Recipes Added Daily</em></h2>
 <h3>Please <a href="/login">Log In</a> or <a href="/signup">Sign Up</a> to continue.</h3>
