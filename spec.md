@@ -35,7 +35,7 @@ Specs:
 - [x] Include user input validations
   - Models ensure a user account must include username and password
 
-- [ ] REDIRECT IF NOT LOGGED IN
+- [x] REDIRECT IF NOT LOGGED IN
 
 - [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
 
