@@ -21,5 +21,11 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def remove_recipe(recipe)
+    user_recipe = UserRecipe.find_by(user_id: self.id, recipe_id: recipe.id)
+    user_recipe.destroy
+    self.save
+  end
+
 
 end
