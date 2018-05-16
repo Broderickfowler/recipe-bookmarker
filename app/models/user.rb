@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
 
   # instance method "bookmark_recipe" ?
   def add_recipe(recipe)
-    #Is this a "safe" method?  Perhaps I can add more safety nets to ensure user
-    #cannot add recipes outside of this method
-    self.recipes << recipe
-    self.save
+    #TODO: add recipe via BUILDING a user_recipe relationship
+    #WHEN A USER CREATES A RECIPE, a UserRecipe relationship should also be build.
+    #BUILD A CUSTOM INSTANCE METHOD for #build or #create ???
+    #Depending on what method you use in your CREATE route
   end
 
 end
