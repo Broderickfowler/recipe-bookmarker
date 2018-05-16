@@ -24,19 +24,20 @@ Specs:
   - https://unorientedobject.wordpress.com/2016/09/14/aliasing-and-options-in-rails-activerecord-associations/
   - Buttons and links on Recipe Show pages only reveal "Edit" option if the user.id == creator.id of the recipe
 
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
     [x]create
     [x]read
     [x]update -- edit,
-    []update --add/remove bookmark
+    [x]update --add/remove bookmark
     [x]destroy
 
 
 - [x] Include user input validations
   - Models ensure a user account must include username and password
 
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [ ] REDIRECT IF NOT LOGGED IN
 
+- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
 
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 

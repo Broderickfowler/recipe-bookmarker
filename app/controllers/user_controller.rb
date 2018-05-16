@@ -51,6 +51,7 @@ class UserController < ApplicationController
   end
 
   get '/users/:id/bookmarks' do
+    redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
     erb :'users/index'
   end

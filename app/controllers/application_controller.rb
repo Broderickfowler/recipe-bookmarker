@@ -23,11 +23,12 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    # def redirect_if_not_logged_in
-    #   if !logged_in?
-    #     redirect "/login?error=You have to be logged in to do that"
-    #   end
-    # end
+    def redirect_if_not_logged_in
+      if !is_logged_in?
+        redirect "/"
+        #flash message stating "you must be logged in to do that"
+      end
+    end
 
   end
 
