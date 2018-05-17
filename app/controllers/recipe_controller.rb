@@ -58,7 +58,12 @@ class RecipeController < ApplicationController
   delete '/recipes/:id/delete' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.destroy
-    
+    @bookmarks = Bookmark.all.each do |b|
+      if b.recipe_id == params[:id].to_i
+        b.destroy
+      end
+    end
+
     #FIND ALL BOOKMARKS ASSOCIATED AND DESTROY
 
     redirect '/recipes'
