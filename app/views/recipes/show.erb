@@ -15,7 +15,7 @@
 
 <!-- QUESTION: Does it make sense for a user to own a recipe and be able to unbookmark it?  -->
 
-<% if @user.all_recipes.include?(@recipe)%>
+<% if @user.recipes.include?(@recipe) || @user.bookmarked_recipes.include?(@recipe)%>
 
   <!-- User method to remove recipe from bookmarks -->
 
