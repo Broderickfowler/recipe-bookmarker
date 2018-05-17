@@ -40,7 +40,7 @@ Specs:
 - [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
   - flash messages notify user when login/signup information is incomplete, and when an added recipe does not save to the database.
 
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits
