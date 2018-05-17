@@ -7,7 +7,6 @@ class UserController < ApplicationController
 
   get '/login' do
     if is_logged_in?
-      #flash message -- you are already logged in
       @user = current_user
       redirect "/recipes"
     else
@@ -23,10 +22,8 @@ class UserController < ApplicationController
       redirect "/recipes"
       # flash message stating successful login
     else
+      flash[:message] = "Login credentials not found, please try again or sign up"
       redirect '/login'
-      # flash message stating username / password combo is incorrect
-      # if password doesn't work, redirect to login
-      # if username is not found, redirect to signup
     end
   end
 
@@ -49,8 +46,8 @@ class UserController < ApplicationController
       redirect "/recipes"
       # flash message stating "Successfully created user"
     else
+      flash[:message] = "Please fill out all signup information, or pick a different username"
       redirect to '/signup'
-      # flash message stating user must fill in all signup information
     end
   end
 

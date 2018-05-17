@@ -1,3 +1,7 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h1>Create an Account</h1>
 <form action="/signup" method="post">
   <label for="user[username]">Username:<br>
