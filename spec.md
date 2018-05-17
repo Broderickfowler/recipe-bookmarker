@@ -8,7 +8,7 @@ Specs:
   - ActiveRecord is required in my Gemfile and my models inherit from this gem.
 
 - [x] Include more than one model class (list of model class names e.g. User, Post, Category)
-  - User, Recipe, UserRecipe --> Aliases to further the AR relationships
+  - User, Recipe, Bookmarks 
 
 - [x] Include at least one has_many relationship on your User model (x has_many y, e.g. User has_many Posts)
   - User has_many user_recipes and recipes through user_recipes

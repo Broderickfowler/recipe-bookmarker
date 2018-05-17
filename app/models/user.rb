@@ -7,15 +7,6 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :password_digest
   validates :username, uniqueness: true
 
-  #TODO: FIX THIS METHOD. RECIPES AND BOOKMARKS NOT WORKING
-  #IDEA: ITERATE OVER USER.RECIPES AND USER.BOOKMARKS IN YOUR VIEW?
-
-  # def all_recipes
-  #   binding.pry
-  #   recipes + bookmarks.collect {|b| b.recipe}
-  #   #HELP" THIS MAKES A DUPLICATE SOMEHOW. FIX THAT
-  # end
-  
   def bookmarked_recipes
     self.bookmarks.collect {|b| b.recipe}
   end
