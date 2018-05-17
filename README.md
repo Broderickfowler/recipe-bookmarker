@@ -23,3 +23,6 @@ Recipe Bookmarker is a social media site where you can share the best recipes th
     `shotgun`
 
 Copy the link outputted to your terminal and then start adding your favorite recipes to the website!  Bring some friends and you can all share what you've been cooking.
+
+# License
+  The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
