@@ -20,7 +20,6 @@ class UserController < ApplicationController
       session[:name] = @user.username
       session[:user_id] = @user.id
       redirect "/recipes"
-      # flash message stating successful login
     else
       flash[:message] = "Login credentials not found, please try again or sign up"
       redirect '/login'
@@ -29,7 +28,6 @@ class UserController < ApplicationController
 
   get '/signup' do
     if is_logged_in?
-      #flash message -- you are already logged in
       @user = current_user
       redirect "/recipes"
     else
@@ -44,7 +42,6 @@ class UserController < ApplicationController
       session[:name] = @user.username
       session[:user_id] = @user.id
       redirect "/recipes"
-      # flash message stating "Successfully created user"
     else
       flash[:message] = "Please fill out all signup information, or pick a different username"
       redirect to '/signup'
@@ -53,6 +50,7 @@ class UserController < ApplicationController
 
   get '/users/:id/bookmarks' do
     redirect_if_not_logged_in
+    
     @user = User.find_by_id(params[:id])
     erb :'users/index'
   end
