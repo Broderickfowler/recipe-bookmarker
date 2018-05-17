@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   #TODO: FIX THIS METHOD. RECIPES AND BOOKMARKS NOT WORKING
   #IDEA: ITERATE OVER USER.RECIPES AND USER.BOOKMARKS IN YOUR VIEW?
   def all_recipes
-    recipes + bookmarks.collect {|b| b}
+    recipes + bookmarks.collect {|b| b.recipe}
+    #HELP" THIS MAKES A DUPLICATE SOMEHOW. FIX THAT
   end
 
   def add_bookmark(recipe)
