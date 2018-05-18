@@ -5,5 +5,4 @@ class Recipe < ActiveRecord::Base
   validates_presence_of :name, :url
   validates :name, uniqueness: true
 
-
 end

@@ -1,9 +1,6 @@
 require './config/environment'
-require 'rack-flash'
 
 class UserController < ApplicationController
-
-  use Rack::Flash #REMOVE THIS -- inherit from app controller
 
   get '/login' do
     if is_logged_in?
@@ -17,7 +14,6 @@ class UserController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:user][:username])
     if !!@user && @user.authenticate(params[:user][:password])
-      session[:name] = @user.username #remove session name -- too much session info
       session[:user_id] = @user.id
       redirect "/recipes"
     else
