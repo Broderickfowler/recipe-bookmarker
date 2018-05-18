@@ -30,8 +30,9 @@ class RecipeController < ApplicationController
 
   get '/recipes/:id/edit' do
     redirect_if_not_logged_in
-
     @recipe = Recipe.find_by_id(params[:id])
+    redirect_if_not_creator(@recipe)
+
     erb :'recipes/edit'
   end
 
@@ -49,6 +50,9 @@ class RecipeController < ApplicationController
 
   patch '/recipes/:id' do
     @recipe = Recipe.find_by_id(params[:id])
+    
+    redirect_if_not_creator(@recipe)
+
     @recipe.update(params[:recipe])
     @recipe.save
     redirect "/recipes/#{@recipe.id}"

@@ -3,7 +3,7 @@ require 'rack-flash'
 
 class UserController < ApplicationController
 
-  use Rack::Flash
+  use Rack::Flash #REMOVE THIS -- inherit from app controller
 
   get '/login' do
     if is_logged_in?
@@ -17,7 +17,7 @@ class UserController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:user][:username])
     if !!@user && @user.authenticate(params[:user][:password])
-      session[:name] = @user.username
+      session[:name] = @user.username #remove session name -- too much session info
       session[:user_id] = @user.id
       redirect "/recipes"
     else
@@ -28,7 +28,7 @@ class UserController < ApplicationController
 
   get '/signup' do
     if is_logged_in?
-      @user = current_user
+      @user = current_user #just reference current user instead of setting instanc evariable
       redirect "/recipes"
     else
       erb :'users/signup'
@@ -50,7 +50,7 @@ class UserController < ApplicationController
 
   get '/users/:id/bookmarks' do
     redirect_if_not_logged_in
-    
+
     @user = User.find_by_id(params[:id])
     erb :'users/index'
   end

@@ -37,6 +37,14 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def redirect_if_not_creator(recipe)
+      if current_user.id != recipe.user_id
+        flash[:message] = "You are not able to edit a recipe you have not created."
+        redirect "/recipes/#{recipe.id}"
+      end
+
+    end
+
   end
 
 end

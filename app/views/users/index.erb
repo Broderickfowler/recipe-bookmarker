@@ -1,7 +1,3 @@
-<!-- USER INDEX -->
-
-<!--TODO: ITERATE OVER RECIPES AND BOOKMARKS, OR FIX ALL_RECIPES METHOD  -->
-
 <h1>Welcome to your homepage, <%= @user.username %></h1>
 <h3>Here are the recipes you have bookmarked:</h3>
 <ul>
@@ -22,10 +18,3 @@
 
 <a href="/recipes">Return to Recipe Bookmarker Homepage</a><br>
 <a href="/recipes/new"> Add Your New Recipe </a>
-
-
-<!-- To Do:  -->
-<!-- All Recipes are links to the RECIPE SHOW pages. X -->
-<!-- Link to Return to homepage AND link to Create a New Recipe X -->
-<!-- IF @user.id == recipe.creator_id, show an EDIT button -->
-<!-- Edit button action="/recipe/recipe_id/edit" method="GET"-->
